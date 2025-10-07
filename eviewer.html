@@ -133,88 +133,54 @@
     <!-- Hero End -->
 
 
+
+
+
+	
     <!-- E-Viewer Start -->
-    <div class="container-fluid bg-light text-light p-5">
-        <h1>Buscador de Normas Legales</h1>
-		<input type="text" id="buscar" placeholder="Buscar número, fecha, título o sinopsis...">
-		<ul id="resultados"></ul>
-		<div id="detalle"></div>
-
-		<script src="script.js"></script>
-    </div>
-    <!-- E-Viewer Start -->
-
-
-    <!-- Facts Start -->
-    <div class="container-fluid bg-dark facts p-5" style="margin-bottom: 20px;">
-        <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador Web</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-        }
-        .result {
-            margin-top: 10px;
-        }
-        .no-results {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Buscador de Documentos PDF</h1>
+   <h1>Buscador de Documentos PDF</h1>
 
     <input type="text" id="search" placeholder="Buscar por descripción..." onkeyup="buscar()">
 
     <div class="result" id="results"></div>
-
-        </div>
-
+    <!-- E-Viewer Start -->
 
 
 
-
-
-
+	
+    <!-- E-Viewer2 Start -->
 <div>
-
-
-
-<table width="100%">
-    	<tr>
-        	<td width="35%"><strong>Criterio de Búsqueda:</strong>
-            </td>
-        	<td width="65%">
-            <input type="text" name="q" size="40" value="Buscar" onfocus="clearSearch(this, 'Buscar');" onblur="fillSearch(this, 'Buscar')" />              
-			</td>
-        </tr>
-        <tr>
-        	<td>
-            </td>
-        	<td class="alerta">
-            <strong>NOTA:</strong> No hace falta completar la palabra. <br /><strong>Ej.:</strong> impuesto fortuna
-            </td>
-        </tr>
-    </table>
-    <center>
-    <input type="submit" value="Realizar Búsqueda" alt="Buscar" />
-    </center>	
-</div>
 					
 
 
 
-
+<fieldset class="contacto2">
+	<legend>Búsqueda por Número de Norma</legend>
+		<form action="/normas/busqueda" method="get">	
+        <br />	
+        <table width="100%">
+        	<tr>
+            	<td width="30%"> <strong>Ingrese el Nº de Norma:</strong>
+                </td>
+                <td width="70%">
+                	<input type="text" name="n" size="30" value="Nro. Norma" onfocus="clearSearch(this, 'Nro. Norma');" onblur="fillSearch(this, 'Nro. Norma')" />
+                </td>
+            </tr>
+            <tr>
+            	<td>
+                </td>
+                <td class="alerta">
+                <strong>NOTA:</strong> Ingrese solo el Nro. de la Norma Buscada. <strong>
+                <br />
+                Ej.:</strong> 1357
+                </td>
+            </tr>    
+        </table>            
+		<center>
+        <input type="submit" value="Buscar Norma" alt="Buscar"/>
+        </center>
+	</form>
+</fieldset>
 
 
 
@@ -227,8 +193,8 @@
 
 
 	
-    </div>
-    <!-- Facts End -->
+  </div>
+    <!-- E-Viewer2 End -->
     
 
     <!-- Footer Start -->
@@ -315,5 +281,6 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
+
 
 </html>
