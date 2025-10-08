@@ -1,4 +1,0 @@
-1  pdfs/ley1826.pdf  detalle
-2  pdfs/ley1827.pdf  impuesto
-3  pdfs/ley1828.pdf  fortuna
-4  pdfs/ley1829.pdf  impuesto riqueza
