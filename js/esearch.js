@@ -20,6 +20,16 @@ window.onload = function() {
     });
 };
 
+
+//Funcion ihabiliatr button
+function activarBoton() {
+  		const input = document.getElementById("buscar").value;
+  		const boton = document.getElementById("buscarBtn");
+
+  		// Habilita el botón solo si hay al menos un carácter
+  		boton.disabled = input.trim().length === 0;
+		}
+
 // Función para buscar las palabras en el archivo cargado
 function buscarPalabras() {
   const consulta = document.getElementById("buscar").value.toLowerCase();
@@ -65,3 +75,4 @@ function buscarPalabras() {
     document.getElementById("resultados").innerHTML = "No se encontraron coincidencias.";
   }
 }
+
