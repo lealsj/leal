@@ -1,14 +1,26 @@
 let textoCompleto = "";
 
-document.getElementById("archivoInput").addEventListener("change", function () {
-  const file = this.files[0];
-  const reader = new FileReader();
-  reader.onload = function () {
-    textoCompleto = reader.result;
-  };
-  reader.readAsText(file);
-});
+// Cargar archivo desde URL al cargar la página
+window.onload = function() {
+  const url = "LEYES/db01.txt"; // Cambia esta URL por la que necesites
 
+  // Usamos fetch para obtener el archivo .txt desde la URL
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error al obtener el archivo desde la URL.");
+      }
+      return response.text();
+    })
+    .then(data => {
+      textoCompleto = data;
+    })
+    .catch(error => {
+      alert("Error: " + error.message);
+    });
+};
+
+// Función para buscar las palabras en el archivo cargado
 function buscarPalabras() {
   const consulta = document.getElementById("buscar").value.toLowerCase();
   const lineas = textoCompleto.split('\n');
@@ -24,13 +36,14 @@ function buscarPalabras() {
         <th>Resumen</th>
       </tr></thead><tbody>
     `;
+
     coincidencias.forEach(linea => {
       const columnas = linea.split('\t');
       tablaHTML += "<tr>";
 
-	  let ruta = columnas[1]?.replace(/"/g, "").trim().replace(/\\/g, "/") || "";
-	  ruta = ruta.substring(1);
-	  
+      let ruta = columnas[1]?.replace(/"/g, "").trim().replace(/\\/g, "/") || "";
+      ruta = ruta.substring(1);  // Ajusta la ruta si es necesario
+
       // Columna 4: Fecha
       let col3 = columnas[3]?.replace(/"/g, "").trim().substring(0, 10) || "";
       tablaHTML += `<td>${col3}</td>`;
@@ -49,6 +62,6 @@ function buscarPalabras() {
     tablaHTML += "</tbody></table>";
     document.getElementById("resultados").innerHTML = tablaHTML;
   } else {
-    document.getElementById("resultados").innerHTML = "No se encontraron leyes.";
+    document.getElementById("resultados").innerHTML = "No se encontraron coincidencias.";
   }
 }
