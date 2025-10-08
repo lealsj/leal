@@ -7,7 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="servicio jurídico" name="keywords">
     <meta content="servicio jurídico" name="description">
-
+    <script defer src="js/esearch.js"></script>
+	
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -123,18 +124,20 @@
                 <h1 class="text-uppercase text-light mb-4">Buscador Legislativo en Bolivia</h1>
         </div>
 		
-        <h3 class="text-light mb-4">Es necesario cargar una base de datos </h3>
-		<input class="btn btn-light py-3 px-5" type="file" id="archivoInput" accept=".txt"><br><br>
-		<input type="text" id="buscar" placeholder="Buscar por número, título o descripción"><br><br>
-		<button class="btn btn-light py-3 px-5" onclick="buscarPalabras()">Buscar</button>
-		<p></p>
+        <h5 class="text-light mb-4">Ingresa Ley, Fecha, Título o Descripción:</h5>
 		
+
+                <!-- Campo de búsqueda -->
+		<input type="text" id="buscar" placeholder="..."><br><br>
+		<button class="btn btn-light py-3 px-4" onclick="buscarPalabras()">Buscar</button>
+
+		<!-- Resultados -->
 		<div id="resultados"></div>
+
 		
 		<div><p></p>Nota: En caso de buscar por fecha, seguir el formato 6/08/1826 
 		<p>Para una mejor opción, visitar el sitio oficial de la Gaceta Jurídica de Bolivia.</p>
 		</div>
-		<script src="js/eviewer.js"></script>
     </div>
     <!-- Esearch End -->
 
@@ -226,5 +229,6 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
+
 
 </html>
