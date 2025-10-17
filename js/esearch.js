@@ -2,7 +2,7 @@ let textoCompleto = "";
 
 // Cargar archivo desde URL al cargar la página
 window.onload = function() {
-  const url = "LEYES/db01.txt"; // Cambia esta URL por la que necesites
+  const url = "LEYES/db02.txt"; // Cambia esta URL por la que necesites
 
   // Usamos fetch para obtener el archivo .txt desde la URL
   fetch(url)
@@ -41,6 +41,7 @@ function buscarPalabras() {
 
     tablaHTML += `
       <thead><tr>
+	  	<th>No</th>
         <th>Fecha</th>
         <th>Título</th>
         <th>Resumen</th>
@@ -54,13 +55,18 @@ function buscarPalabras() {
       let ruta = columnas[1]?.replace(/"/g, "").trim().replace(/\\/g, "/") || "";
       ruta = ruta.substring(1);  // Ajusta la ruta si es necesario
 
-      // Columna 4: Fecha
-      let col3 = columnas[3]?.replace(/"/g, "").trim().substring(0, 10) || "";
-      tablaHTML += `<td>${col3}</td>`;
-
+      // Columna 3: No
+      let col2 = columnas[2]?.trim() || "";
+	  if (col2 === "0") col2 = "s/n";
+      tablaHTML += `<td>${col2}</td>`;
+	  
       // Columna 5: Título (limitado a 10 caracteres)
       let col4 = columnas[4]?.replace(/"/g, "") || "";
       tablaHTML += `<td>${col4}</td>`;
+	  
+	  // Columna 4: Fecha
+      let col3 = columnas[3]?.trim().substring(0, 10) || "";
+      tablaHTML += `<td>${col3}</td>`;
 
       // Columna 6: Resumen
       let col5 = columnas[5]?.replace(/"/g, "") || "";
@@ -75,4 +81,5 @@ function buscarPalabras() {
     document.getElementById("resultados").innerHTML = "No se encontraron coincidencias.";
   }
 }
+
 
